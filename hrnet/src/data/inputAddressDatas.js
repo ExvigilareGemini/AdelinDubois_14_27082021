@@ -1,7 +1,7 @@
-export const inputNames = [
+export const inputAddressDatas = [
   {
-    name: "first-name",
-    title: "First Name",
+    name: "street",
+    title: "Street",
     type: "text",
     select: {
       isSelect: false,
@@ -9,8 +9,8 @@ export const inputNames = [
     },
   },
   {
-    name: "last-name",
-    title: "Last Name",
+    name: "city",
+    title: "City",
     type: "text",
     select: {
       isSelect: false,
@@ -18,18 +18,18 @@ export const inputNames = [
     },
   },
   {
-    name: "date-of-birth",
-    title: "Date of Birth",
-    type: "text",
+    name: "state",
+    title: "State",
+    type: "",
     select: {
-      isSelect: false,
+      isSelect: true,
       content: [],
     },
   },
   {
-    name: "start-date",
-    title: "Start Date",
-    type: "text",
+    name: "zip-code",
+    title: "Zip code",
+    type: "number",
     select: {
       isSelect: false,
       content: [],

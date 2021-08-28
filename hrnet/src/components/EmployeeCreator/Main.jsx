@@ -8,6 +8,7 @@ export default function Main() {
       <Link to="/employeeList">View Current Employees</Link>
       <h2>Create Employee</h2>
       <Form />
+      <button>Save</button>
     </main>
   );
 }
