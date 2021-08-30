@@ -7,8 +7,6 @@ import {
 import InputCreator from "./form/InputCreator";
 import "react-datepicker/dist/react-datepicker.css";
 
-// TODO : DatePicker in InputCreator & data export const
-
 export default function Form() {
   return (
     <form className="EmployeeCreatorForm">
