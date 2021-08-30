@@ -11,7 +11,7 @@ export default function ModalButton() {
 
   return (
     <>
-      <button onClick={toggleModal}>Save</button>
+      <button className="saveButton" onClick={toggleModal}>Save</button>
       <Modal
         isOpen={isOpen}
         onBackgroundClick={toggleModal}

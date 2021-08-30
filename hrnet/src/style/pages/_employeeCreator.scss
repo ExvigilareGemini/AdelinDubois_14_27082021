@@ -1,0 +1,29 @@
+.EmployeeCreatorBody {
+  @include flexCenter();
+
+  .EmployeeCreatorMain {
+    @include flexCenter();
+
+    .saveButton {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.EmployeeCreatorForm {
+  @include flexColumn();
+
+  label {
+    margin-top: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .react-datepicker__input-container {
+    @include flexColumn();
+  }
+
+  .address {
+    @include flexColumn();
+    margin-top: 1rem;
+  }
+}
