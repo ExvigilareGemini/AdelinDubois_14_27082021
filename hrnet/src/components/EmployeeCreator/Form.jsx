@@ -1,8 +1,13 @@
 import React from "react";
-import { inputAddressDatas } from "../../data/inputAddressDatas";
-import { inputDepartmentDatas } from "../../data/inputDepartmentDatas";
-import { inputNames } from "../../data/inputNames";
+import {
+  inputNames,
+  inputDepartmentDatas,
+  inputAddressDatas,
+} from "../../data/inputDatas";
 import InputCreator from "./form/InputCreator";
+import "react-datepicker/dist/react-datepicker.css";
+
+// TODO : DatePicker in InputCreator & data export const
 
 export default function Form() {
   return (
@@ -14,7 +19,7 @@ export default function Form() {
             name={el.name}
             title={el.title}
             type={el.type}
-            select={el.select}
+            selectContent={el.selectContent}
           />
         );
       })}
@@ -27,21 +32,21 @@ export default function Form() {
               name={el.name}
               title={el.title}
               type={el.type}
-              select={el.select}
+              selectContent={el.selectContent}
             />
           );
         })}
       </fieldset>
       {inputDepartmentDatas.map((el, index) => {
         return (
-            <InputCreator
-              key={el.name + index}
-              name={el.name}
-              title={el.title}
-              type={el.type}
-              select={el.select}
-            />
-          );
+          <InputCreator
+            key={el.name + index}
+            name={el.name}
+            title={el.title}
+            type={el.type}
+            selectContent={el.selectContent}
+          />
+        );
       })}
     </form>
   );
