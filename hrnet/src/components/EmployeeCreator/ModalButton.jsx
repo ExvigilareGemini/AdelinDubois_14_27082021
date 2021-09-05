@@ -8,7 +8,7 @@ export default function ModalButton() {
   function toggleModal(e) {
     setIsOpen(!isOpen);
   }
-
+  
   return (
     <>
       <button className="saveButton" onClick={toggleModal}>Save</button>
