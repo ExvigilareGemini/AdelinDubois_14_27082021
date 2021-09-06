@@ -2,12 +2,14 @@ import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { toggleModal } from "../../redux/actions/actions";
+import { saveToLocalStorage } from "../../saveToLocalStorage";
 import Modal from "styled-react-modal";
 import cross from "../../img/close-circle-fill.svg";
 
 function ModalButton(props) {
   function toggleModal() {
-    props.toggleModal(props.modalIsOpen);
+    if (!props.state.modalIsOpen) saveToLocalStorage(props.state);
+    props.toggleModal(props.state.modalIsOpen);
   }
 
   return (
@@ -16,7 +18,7 @@ function ModalButton(props) {
         Save
       </button>
       <Modal
-        isOpen={props.modalIsOpen}
+        isOpen={props.state.modalIsOpen}
         onBackgroundClick={toggleModal}
         onEscapeKeydown={toggleModal}
       >
@@ -28,7 +30,7 @@ function ModalButton(props) {
 }
 
 const mapStateToProps = (state) => {
-  return { modalIsOpen: state.modalIsOpen };
+  return { state: state };
 };
 
 const mapDispatchToProps = (dispatch) => {
