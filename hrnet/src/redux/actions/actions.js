@@ -7,3 +7,10 @@ export const saveDatasInput = (data, category) => {
     category,
   };
 };
+
+export const toggleModal = (modalIsOpen) => {
+  return {
+    type: types.TOGGLE_MODAL,
+    modalIsOpen: modalIsOpen,
+  };
+};

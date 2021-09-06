@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { toggleModal } from "../../redux/actions/actions";
 import Modal from "styled-react-modal";
-import cross from "../../img/close-circle-fill.svg"
+import cross from "../../img/close-circle-fill.svg";
 
-export default function ModalButton() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  function toggleModal(e) {
-    setIsOpen(!isOpen);
+function ModalButton(props) {
+  function toggleModal() {
+    props.toggleModal(props.modalIsOpen);
   }
-  
+
   return (
     <>
-      <button className="saveButton" onClick={toggleModal}>Save</button>
+      <button className="saveButton" onClick={toggleModal}>
+        Save
+      </button>
       <Modal
-        isOpen={isOpen}
+        isOpen={props.modalIsOpen}
         onBackgroundClick={toggleModal}
         onEscapeKeydown={toggleModal}
       >
@@ -23,3 +26,18 @@ export default function ModalButton() {
     </>
   );
 }
+
+const mapStateToProps = (state) => {
+  return { modalIsOpen: state.modalIsOpen };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      toggleModal,
+    },
+    dispatch
+  );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ModalButton);

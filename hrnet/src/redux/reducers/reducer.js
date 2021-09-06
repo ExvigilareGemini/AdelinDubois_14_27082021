@@ -1,6 +1,19 @@
-import { SAVE } from "../constants/constants";
+import { TOGGLE_MODAL, SAVE } from "../constants/constants";
 
-export const reducers = (state = {}, action) => {
+const initialState = {
+  modalIsOpen: false,
+  firstname: "",
+  lastname: "",
+  dateoOfBirth: "",
+  startDate: "",
+  street: "",
+  city: "",
+  state: "",
+  zipCode: "",
+  department: "",
+};
+
+export const reducers = (state = initialState, action) => {
   switch (action.type) {
     case SAVE:
       return action.category === "first-name"
@@ -20,6 +33,11 @@ export const reducers = (state = {}, action) => {
         : action.category === "zip-code"
         ? { ...state, zipCode: action.data }
         : { ...state, department: action.data };
+    case TOGGLE_MODAL:
+      return {
+        ...state,
+        modalIsOpen: !action.modalIsOpen,
+      };
     default:
       return state;
   }
