@@ -3,17 +3,19 @@ import Row from "./Table/Row";
 
 export default function Table() {
   return (
-    <table>
+    <table className="table">
       <thead>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Start Date</th>
-        <th>Department</th>
-        <th>Date of birth</th>
-        <th>Street</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Zip Code</th>
+        <tr className="row">
+          <th className="cell" >First Name</th>
+          <th className="cell" >Last Name</th>
+          <th className="cell" >Start Date</th>
+          <th className="cell" >Department</th>
+          <th className="cell" >Date of birth</th>
+          <th className="cell" >Street</th>
+          <th className="cell" >City</th>
+          <th className="cell" >State</th>
+          <th className="cell" >Zip Code</th>
+        </tr>
       </thead>
       <tbody>
         <Row />

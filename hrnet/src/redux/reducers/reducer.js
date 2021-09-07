@@ -1,4 +1,4 @@
-import { TOGGLE_MODAL, SAVE } from "../constants/constants";
+import { GET_FORM_DATA, HANDLE_SAVE_BUTTON } from "../constants/constants";
 
 const initialState = {
   modalIsOpen: false,
@@ -15,25 +15,30 @@ const initialState = {
 
 export const reducers = (state = initialState, action) => {
   switch (action.type) {
-    case SAVE:
-      return action.category === "first-name"
-        ? { ...state, firstname: action.data }
-        : action.category === "last-name"
-        ? { ...state, lastname: action.data }
-        : action.category === "date-of-birth"
-        ? { ...state, dateoOfBirth: action.data }
-        : action.category === "start-date"
-        ? { ...state, startDate: action.data }
-        : action.category === "street"
-        ? { ...state, street: action.data }
-        : action.category === "city"
-        ? { ...state, city: action.data }
-        : action.category === "state"
-        ? { ...state, state: action.data }
-        : action.category === "zip-code"
-        ? { ...state, zipCode: action.data }
-        : { ...state, department: action.data };
-    case TOGGLE_MODAL:
+    case GET_FORM_DATA:
+      switch (action.category) {
+        case "first-name":
+          return { ...state, firstname: action.data };
+        case "last-name":
+          return { ...state, lastname: action.data };
+        case "date-of-birth":
+          return { ...state, dateoOfBirth: action.data };
+        case "start-date":
+          return { ...state, startDate: action.data };
+        case "street":
+          return { ...state, street: action.data };
+        case "city":
+          return { ...state, city: action.data };
+        case "state":
+          return { ...state, state: action.data };
+        case "zip-code":
+          return { ...state, zipCode: action.data };
+        case "department":
+          return { ...state, department: action.data };
+        default:
+          return { ...state };
+      }
+    case HANDLE_SAVE_BUTTON:
       return {
         ...state,
         modalIsOpen: !action.modalIsOpen,

@@ -1,29 +1,27 @@
 import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { toggleModal } from "../../redux/actions/actions";
-import { saveToLocalStorage } from "../../saveToLocalStorage";
+import { handleSaveButton } from "../../redux/actions/actions";
 import Modal from "styled-react-modal";
 import cross from "../../img/close-circle-fill.svg";
 
 function ModalButton(props) {
-  function toggleModal() {
-    if (!props.state.modalIsOpen) saveToLocalStorage(props.state);
-    props.toggleModal(props.state.modalIsOpen);
+  function handleSaveButton() {
+    props.handleSaveButton(props.state);
   }
 
   return (
     <>
-      <button className="saveButton" onClick={toggleModal}>
+      <button className="saveButton" onClick={handleSaveButton}>
         Save
       </button>
       <Modal
         isOpen={props.state.modalIsOpen}
-        onBackgroundClick={toggleModal}
-        onEscapeKeydown={toggleModal}
+        onBackgroundClick={handleSaveButton}
+        onEscapeKeydown={handleSaveButton}
       >
         Employee created
-        <img src={cross} onClick={toggleModal} alt=""></img>
+        <img src={cross} onClick={handleSaveButton} alt=""></img>
       </Modal>
     </>
   );
@@ -36,7 +34,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
-      toggleModal,
+      handleSaveButton,
     },
     dispatch
   );

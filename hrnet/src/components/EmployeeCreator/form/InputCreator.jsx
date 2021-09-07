@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { saveDatasInput } from "../../../redux/actions/actions";
+import { getFormData } from "../../../redux/actions/actions";
 import DatePicker from "react-datepicker";
 import Select from "react-select";
 
@@ -13,14 +13,24 @@ function InputCreator(props) {
       <label htmlFor={props.name}>{props.title}</label>
 
       {props.type === "select" ? (
-        <Select options={props.selectContent} onChange={e => props.saveDatasInput(e.value, props.name)} />
+        <Select
+          options={props.selectContent}
+          onChange={(e) => props.getFormData(e.value, props.name)}
+        />
       ) : props.type === "datepicker" ? (
         <DatePicker
           selected={startDate}
-          onChange={(date) => {setStartDate(date); props.saveDatasInput(date.toLocaleDateString(), props.name)}}
+          onChange={(date) => {
+            setStartDate(date);
+            if(date !== null)props.getFormData(date.toLocaleDateString(), props.name);
+          }}
         />
       ) : (
-        <input type={props.type} id={props.name} onChange={e => props.saveDatasInput(e.target.value, props.name)} />
+        <input
+          type={props.type}
+          id={props.name}
+          onChange={(e) => props.getFormData(e.target.value, props.name)}
+        />
       )}
     </>
   );
@@ -29,10 +39,10 @@ function InputCreator(props) {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
-      saveDatasInput,
+      getFormData,
     },
     dispatch
   );
 };
 
-export default connect(null, mapDispatchToProps)(InputCreator)
+export default connect(null, mapDispatchToProps)(InputCreator);
