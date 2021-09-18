@@ -19,10 +19,12 @@ function InputCreator(props) {
         />
       ) : props.type === "datepicker" ? (
         <DatePicker
+          dateFormat="dd/MM/yyyy"
           selected={startDate}
           onChange={(date) => {
             setStartDate(date);
-            if(date !== null)props.getFormData(date.toLocaleDateString(), props.name);
+            if (date !== null)
+              props.getFormData(date.toLocaleDateString(), props.name);
           }}
         />
       ) : (
