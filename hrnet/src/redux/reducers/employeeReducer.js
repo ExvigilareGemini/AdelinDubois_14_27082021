@@ -13,7 +13,7 @@ const initialState = {
   department: "",
 };
 
-export const reducers = (state = initialState, action) => {
+export const employee = (state = initialState, action) => {
   switch (action.type) {
     case GET_FORM_DATA:
       switch (action.category) {
@@ -48,4 +48,4 @@ export const reducers = (state = initialState, action) => {
   }
 };
 
-export default reducers;
+export default employee;

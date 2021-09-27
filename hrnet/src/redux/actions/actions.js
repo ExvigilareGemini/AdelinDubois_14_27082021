@@ -10,7 +10,6 @@ export const getFormData = (data, category) => {
 };
 
 export const handleSaveButton = (state) => {
-  console.log(state)
   if (!state.modalIsOpen) saveToLocalStorage(state);
   return {
     type: types.HANDLE_SAVE_BUTTON,

@@ -28,7 +28,7 @@ function ModalButton(props) {
 }
 
 const mapStateToProps = (state) => {
-  return { state: state };
+  return { state: state.employee };
 };
 
 const mapDispatchToProps = (dispatch) => {
