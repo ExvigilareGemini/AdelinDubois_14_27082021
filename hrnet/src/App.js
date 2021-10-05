@@ -1,8 +1,9 @@
 import EmployeeCreator from "./pages/EmployeeCreator";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import EmployeeList from "./pages/EmployeeList";
 import Error404 from "./pages/Error404";
 import "./style/App.scss";
+import "react-datetime/css/react-datetime.css";
 
 function App() {
   return (

@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Form from "./Form";
-import ModalButton from "./ModalButton";
+import SaveButton from "./SaveButton";
+import ModalWindow from "./ModalWindow";
 
 export default function Main() {
   return (
@@ -9,7 +10,8 @@ export default function Main() {
       <Link to="/employeeList">View Current Employees</Link>
       <h2>Create Employee</h2>
       <Form />
-      <ModalButton />
+      <SaveButton />
+      <ModalWindow />
     </main>
   );
 }

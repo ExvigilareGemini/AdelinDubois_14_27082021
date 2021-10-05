@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { getFormData } from "../../../redux/actions/actions";
-import DatePicker from "react-datepicker";
 import Select from "react-select";
+import Datetime from "react-datetime";
 
 function InputCreator(props) {
-  const [startDate, setStartDate] = useState(new Date());
 
   return (
     <>
@@ -18,13 +17,16 @@ function InputCreator(props) {
           onChange={(e) => props.getFormData(e.value, props.name)}
         />
       ) : props.type === "datepicker" ? (
-        <DatePicker
-          dateFormat="dd/MM/yyyy"
-          selected={startDate}
-          onChange={(date) => {
-            setStartDate(date);
-            if (date !== null)
-              props.getFormData(date.toLocaleDateString(), props.name);
+        <Datetime
+          dateFormat="DD/MM/YYYY"
+          timeFormat={false}
+          onChange={(e) => {
+            if (typeof(e) === "object" && e.constructor.name === "Moment") {
+              props.getFormData(
+                `${e.date()}/${e.month() + 1}/${e.year()}`,
+                props.name
+              );
+            }
           }}
         />
       ) : (

@@ -1,4 +1,8 @@
-import { GET_FORM_DATA, HANDLE_SAVE_BUTTON } from "../constants/constants";
+import {
+  GET_FORM_DATA,
+  HANDLE_SAVE_BUTTON,
+  TOGGLE_MODAL,
+} from "../constants/constants";
 
 const initialState = {
   modalIsOpen: false,
@@ -13,7 +17,7 @@ const initialState = {
   department: "",
 };
 
-export const employee = (state = initialState, action) => {
+export const employeeReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_FORM_DATA:
       switch (action.category) {
@@ -43,9 +47,14 @@ export const employee = (state = initialState, action) => {
         ...state,
         modalIsOpen: !action.modalIsOpen,
       };
+    case TOGGLE_MODAL:
+      return {
+        ...state,
+        modalIsOpen: !action.modalIsOpen,
+      };
     default:
       return state;
   }
 };
 
-export default employee;
+export default employeeReducer;

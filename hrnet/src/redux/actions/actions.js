@@ -16,3 +16,10 @@ export const handleSaveButton = (state) => {
     modalIsOpen: state.modalIsOpen,
   };
 };
+
+export const toggleModal = (modalIsOpen) => {
+  return {
+    type: types.TOGGLE_MODAL,
+    modalIsOpen,
+  };
+};
