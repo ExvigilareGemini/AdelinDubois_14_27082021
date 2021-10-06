@@ -2,8 +2,9 @@ import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { toggleModal } from "../../redux/actions/actions";
-import Modal from "styled-react-modal";
+import Modal from 'react-modal';
 import cross from "../../img/close-circle-fill.svg";
+
 
 function ModalWindow(props) {
   const { modalIsOpen, toggleModal } = props; 
@@ -15,12 +16,12 @@ function ModalWindow(props) {
   return (
     <>
       <Modal
+      className="employeeCreatorModal"
         isOpen={modalIsOpen}
-        onBackgroundClick={togglingModal}
-        onEscapeKeydown={togglingModal}
+        onRequestClose={togglingModal}
       >
         Employee created
-        <img src={cross} onClick={togglingModal} alt=""></img>
+        <img className="modalCross" src={cross} onClick={togglingModal} alt=""></img>
       </Modal>
     </>
   );

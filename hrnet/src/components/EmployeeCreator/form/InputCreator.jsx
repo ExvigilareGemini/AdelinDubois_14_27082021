@@ -14,6 +14,7 @@ function InputCreator(props) {
       {props.type === "select" ? (
         <Select
           options={props.selectContent}
+          menuPlacement="auto"
           onChange={(e) => props.getFormData(e.value, props.name)}
         />
       ) : props.type === "datepicker" ? (

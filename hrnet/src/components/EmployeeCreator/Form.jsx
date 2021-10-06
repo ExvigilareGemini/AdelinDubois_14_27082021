@@ -10,19 +10,21 @@ import "react-datepicker/dist/react-datepicker.css";
 export default function Form() {
   return (
     <form className="EmployeeCreatorForm">
-      {inputNames.map((el, index) => {
-        return (
-          <InputCreator
-            key={el.name + index}
-            name={el.name}
-            title={el.title}
-            type={el.type}
-            selectContent={el.selectContent}
-          />
-        );
-      })}
+      <div className="personnalDatasContainer">
+        {inputNames.map((el, index) => {
+          return (
+            <InputCreator
+              key={el.name + index}
+              name={el.name}
+              title={el.title}
+              type={el.type}
+              selectContent={el.selectContent}
+            />
+          );
+        })}
+      </div>
       <fieldset className="address">
-        <legend>Addres</legend>
+        <legend>Address</legend>
         {inputAddressDatas.map((el, index) => {
           return (
             <InputCreator

@@ -1,0 +1,82 @@
+.EmployeeCreatorBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.EmployeeCreatorBody .EmployeeCreatorMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.EmployeeCreatorBody .EmployeeCreatorMain .saveButton {
+  margin-top: 1rem;
+}
+
+.EmployeeCreatorForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.EmployeeCreatorForm .personnalDatasContainer {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1em;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.EmployeeCreatorForm label {
+  margin: .5rem 0;
+}
+
+.EmployeeCreatorForm .address {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.EmployeeCreatorForm .css-2b097c-container {
+  margin-bottom: 1rem;
+}
+
+.employeeCreatorModal {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 50vh;
+  margin-left: 50vw;
+  padding: 2rem 2.5rem 2rem 1rem;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: solid 1px black;
+  background-color: white;
+}
+
+.employeeCreatorModal .modalCross {
+  position: absolute;
+  top: .2rem;
+  right: .2rem;
+}
+
+.EmployeeListContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.row {
+  height: 30px;
+}
+
+.row .cell {
+  padding: 10px;
+  text-align: center;
+}
